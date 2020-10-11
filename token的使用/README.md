@@ -1,7 +1,7 @@
 ## token 的使用
 
 token 验证是优于传统的 session 验证的，使用 token 可以很简单的实现单点登录
-具体可以看这篇文章
+具体可以看这篇文章[token的使用](https://blog.ifthat.com/token%E7%9A%84%E4%BD%BF%E7%94%A8/)
 
 ## 跑起来
 
