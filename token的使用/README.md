@@ -11,5 +11,5 @@ node server.js
 
 ### 参考资料
 
-https://my.oschina.net/jamesfancy/blog/1613994
-https://www.jianshu.com/p/e9bad7d3b030
+[Token 认证的来龙去脉](https://my.oschina.net/jamesfancy/blog/1613994)
+[JWT的rs256算法...](https://www.jianshu.com/p/e9bad7d3b030)
