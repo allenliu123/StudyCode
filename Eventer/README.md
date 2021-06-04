@@ -43,8 +43,62 @@ export default new Vue();
 <script>
 ```
 
-# 补充 vue3 
+# 而在 vue3 里面，可以借助另外的工具，比如 tiny-emitter
 
+``` javascript
+// eventBus.ts
+const Emitter = require('tiny-emitter');
+
+const emitter = new Emitter();
+
+export default emitter;
+
+```
+``` html
+// A.vue
+<script lang="typescript">
+import { defineComponent, unmount } from 'vue'
+import eventBus from "./eventBus.ts"
+
+export default defineComponent({
+  unmount() {
+    eventBus.on("btnClick");
+  },
+  setup() {
+    eventBus.on("btnClick", () => {
+      console.log('xxx')
+    });
+  }
+})
+</script>
+```
+
+``` html
+// B.vue
+<template lang="typescript">
+  <div>
+  	<button @click="handleBtnClick" value="click"/>
+  </div>
+</template>
+
+<script>
+import { defineComponent } from 'vue'
+import eventBus from "./eventBus.ts"
+
+export default defineComponent({
+  setup() {
+    const handleBtnClick = () => {
+      eventBus.emit('btnClick') 
+    }
+
+    return {
+      handleBtnClick
+    }
+  }
+})
+
+<script>
+```
 
 但是最近读到《JavaScript设计模式与开发实际》这本书，里面提到发布订阅者模式（也叫观察者模式），就想到了组件间通信的场景，现在就来尝试实现一下
 
